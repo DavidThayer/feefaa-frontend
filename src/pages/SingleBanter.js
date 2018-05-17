@@ -29,7 +29,7 @@ class SingleBanterPage extends Component {
 		console.log('props', this.props)
 		console.log('submitted')
 		console.log('banterId', banterId)
-		fetch(`http://localhost:8080/api/banters/${banterId}/bashes`, {
+		fetch(`https://feefaa-backend.herokuapp.com/api/banters/${banterId}/bashes`, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -62,7 +62,7 @@ class SingleBanterPage extends Component {
 
 		let updatedBash = this.state.banterPost.bash.filter(bash => bash._id !== bashes_id);
 		console.log(updatedBash);
-		fetch(`http://localhost:8080/api/banters/${banterId}/bashes/${bashes_id}`, {
+		fetch(`https://feefaa-backend.herokuapp.com/api/banters/${banterId}/bashes/${bashes_id}`, {
 		method: 'DELETE',
 		headers: {
 			'Accept': 'application/json',
@@ -89,7 +89,7 @@ class SingleBanterPage extends Component {
 	componentDidMount = () => {
 		let banterId = this.props.match.params.banter_id
 		console.log('banter id is', banterId)
-		fetch(`http://localhost:8080/api/banters/${banterId}/`)
+		fetch(`https://feefaa-backend.herokuapp.com/api/banters/${banterId}/`)
   		.then(res => res.json())
   		.then(banterPost => {
   			this.setState({

@@ -27,7 +27,7 @@ class BantersContainer extends Component {
 		console.log("submitted")
 		var randomName = faker.fake("{{name.firstName}} {{hacker.verb}}");
 		var randomAvatar = faker.fake("{{image.avatar}}");
-		fetch('http://localhost:8080/api/banters', {
+		fetch('https://feefaa-backend.herokuapp.com/api/banters', {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -51,7 +51,7 @@ class BantersContainer extends Component {
 	deletePost = (banter_id) => {
 		console.log(banter_id);
 		let updatedPost = this.state.banterPosts.filter(banter => banter._id !== banter_id);
-		fetch(`http://localhost:8080/api/banters/${ banter_id }`, {
+		fetch(`https://feefaa-backend.herokuapp.com/api/banters/${ banter_id }`, {
 			method: 'DELETE',
 			headers: {
 				'Accept': 'application/json',
@@ -67,7 +67,7 @@ class BantersContainer extends Component {
 
 
 	componentDidMount() {
-  	fetch('http://localhost:8080/api/banters')
+  	fetch('https://feefaa-backend.herokuapp.com/api/banters')
   		.then(res => res.json())
   		.then(allPosts => {
   			this.setState({ banterPosts: allPosts });
